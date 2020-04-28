@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 //第三种promise
-export function Request(config) {
+export function request(config) {
     return new Promise((resolve, reject) => {
         //1、创建实例
         const instance = axios.create({
