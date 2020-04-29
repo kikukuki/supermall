@@ -6,18 +6,20 @@
 </template>
 
 <script>
-import MainTabBar from './components/content/maintabbar/MainTabBar'
+import MainTabBar from "./components/content/maintabbar/MainTabBar";
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    MainTabBar
-  }
-}
+    MainTabBar,
+  },
+};
 </script>
 
 <style>
-@import './assets/css/base.css';
-@import './assets/css/normalize.css';
+@import "./assets/css/base.css";
+@import "./assets/css/normalize.css";
 
-
+#app {
+  position: relative;
+}
 </style>
