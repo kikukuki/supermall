@@ -19,7 +19,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .feature {
   width: 100%;
   display: flex;
@@ -32,7 +32,7 @@ export default {
   text-align: center;
 }
 .feature img {
-  width: 80px;
-  height: 80px;
+  width: 80%;
+  height: 80%;
 }
 </style>

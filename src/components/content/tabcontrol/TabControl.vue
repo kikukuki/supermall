@@ -30,6 +30,7 @@ export default {
   methods: {
     itemClick(index) {
       this.activeIndex = index;
+      console.log(index);
     },
   },
 };
