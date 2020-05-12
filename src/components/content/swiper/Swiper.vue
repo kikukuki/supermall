@@ -1,20 +1,15 @@
 <template>
   <div id="hy-swiper">
-    <div
-      class="swiper"
-      @touchstart="touchStart()"
-      @touchmove="touchMove()"
-      @touchend="touchEnd()"
-    >
+    <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
       <slot></slot>
     </div>
     <slot name="indicator"></slot>
     <div class="indicator">
-      <slot name="indicator" v-if="showIndicator && slideCount > 1">
+      <slot name="indicator" v-if="showIndicator && slideCount>1">
         <div
           v-for="(item, index) in slideCount"
           class="indi-item"
-          :class="{ active: index === currentIndex - 1 }"
+          :class="{active: index === currentIndex-1}"
           :key="index"
         ></div>
       </slot>
@@ -28,20 +23,20 @@ export default {
   props: {
     interval: {
       type: Number,
-      default: 3000,
+      default: 3000
     },
     animDuration: {
       type: Number,
-      default: 300,
+      default: 300
     },
     moveRatio: {
       type: Number,
-      default: 0.25,
+      default: 0.25
     },
     showIndicator: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   data: function() {
     return {
@@ -49,7 +44,7 @@ export default {
       totalWidth: 0, // swiper的宽度
       swiperStyle: {}, // swiper样式
       currentIndex: 1, // 当前的index
-      scrolling: false, // 是否正在滚动
+      scrolling: false // 是否正在滚动
     };
   },
   mounted: function() {
@@ -136,14 +131,14 @@ export default {
       this.slideCount = slidesEls.length;
 
       // 3.如果大于1个, 那么在前后分别添加一个slide
-      // if (this.slideCount > 1) {
-      //   let cloneFirst = slidesEls[0].cloneNode(true);
-      //   let cloneLast = slidesEls[this.slideCount - 1].cloneNode(true);
-      //   swiperEl.insertBefore(cloneLast, slidesEls[0]);
-      //   swiperEl.appendChild(cloneFirst);
-      //   this.totalWidth = swiperEl.offsetWidth;
-      //   this.swiperStyle = swiperEl.style;
-      // }
+      if (this.slideCount > 1) {
+        let cloneFirst = slidesEls[0].cloneNode(true);
+        let cloneLast = slidesEls[this.slideCount - 1].cloneNode(true);
+        swiperEl.insertBefore(cloneLast, slidesEls[0]);
+        swiperEl.appendChild(cloneFirst);
+        this.totalWidth = swiperEl.offsetWidth;
+        this.swiperStyle = swiperEl.style;
+      }
 
       // 4.让swiper元素, 显示第一个(目前是显示前面添加的最后一个元素)
       this.setTransform(-this.totalWidth);
@@ -155,7 +150,7 @@ export default {
     touchStart: function(e) {
       // 1.如果正在滚动, 不可以拖动
       if (this.scrolling) return;
-
+      // console.log(e);
       // 2.停止定时器
       this.stopTimer();
 
@@ -223,8 +218,8 @@ export default {
 
       // 3.添加定时器
       this.startTimer();
-    },
-  },
+    }
+  }
 };
 </script>
 

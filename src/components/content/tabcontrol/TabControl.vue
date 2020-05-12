@@ -19,26 +19,28 @@ export default {
       type: Array,
       default() {
         return [];
-      },
-    },
+      }
+    }
   },
   data() {
     return {
-      activeIndex: 0,
+      activeIndex: 0
     };
   },
   methods: {
     itemClick(index) {
       this.activeIndex = index;
-      console.log(index);
-    },
-  },
+      this.$emit("tabClick", index);
+      // console.log(index);
+    }
+  }
 };
 </script>
 <style scoped>
 .tabcontrol {
   display: flex;
   font-size: 17px;
+  padding-bottom: 10px;
 }
 .item-tabcontrol {
   text-align: center;

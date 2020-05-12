@@ -1,8 +1,11 @@
 <template>
-  <div class="goodsitem">
-    <!-- {{goodslist}} -->
-    <!-- <img :src="goodslist.show.img" alt /> -->
-    <button @click="btnclick">124</button>
+  <div class="goodsitem" @click="goodsClick">
+    <img :src="getImg" alt @load="imageLoad" />
+    <div class="goods-info">
+      <p>{{goodslist.title}}</p>
+      <span class="price">{{goodslist.price}}</span>
+      <span class="collect">{{goodslist.cfav}}</span>
+    </div>
   </div>
 </template>
 
@@ -25,10 +28,60 @@ export default {
     }
   },
   methods: {
-    btnclick() {
-      console.log(this.goodslist[0].show.img);
+    //监听图片加载是否完成用   @Load
+    imageLoad() {
+      this.$bus.$emit("imageItemLoad");
+    },
+    goodsClick() {
+      this.$router.push("/detail/" + this.goodslist.iid);
     }
   },
   mounted() {}
 };
 </script>
+
+<style scoped>
+.goodsitem {
+  padding-bottom: 40px;
+  position: relative;
+  width: 47%;
+}
+.goodsitem img {
+  width: 100%;
+  border-radius: 5px;
+}
+.goods-info {
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+.goods-info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 3px;
+}
+
+.goods-info .price {
+  color: var(--color-high-text);
+  margin-right: 20px;
+}
+
+.goods-info .collect {
+  position: relative;
+}
+
+.goods-info .collect::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  background: url("~assets/img/common/collect.svg") 0 0/14px 14px;
+}
+</style>

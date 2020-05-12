@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive exclude="Detail">
+      <!-- //不要随意销毁    排除keep-alive -->
+      <router-view></router-view>
+    </keep-alive>
     <main-tab-bar></main-tab-bar>
   </div>
 </template>
@@ -10,8 +13,8 @@ import MainTabBar from "./components/content/maintabbar/MainTabBar";
 export default {
   name: "app",
   components: {
-    MainTabBar,
-  },
+    MainTabBar
+  }
 };
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="goods">
     <goods-item v-for="(item,index) in goods" :key="index" :goodslist="item"></goods-item>
+    <!-- <button @click="listcilick">1234567</button> -->
   </div>
 </template>
 <script>
@@ -18,6 +19,17 @@ export default {
   components: {
     GoodsItem
   },
-  methods: {}
+  methods: {
+    listcilick() {
+      console.log(this.goods);
+    }
+  }
 };
 </script>
+<style scoped>
+.goods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+</style>

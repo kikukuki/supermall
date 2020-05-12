@@ -9,13 +9,13 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {}
 };
 </script>
 <style scoped>
 .back-top {
   position: fixed;
-  right: 8px;
+  right: 4%;
   bottom: 60px;
 }
 .back-top img {
