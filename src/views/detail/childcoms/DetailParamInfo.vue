@@ -12,8 +12,8 @@
           <td class="set-value">{{info.value}}</td>
         </tr>
       </table>
-      <div class="param-img">
-        <img :src="DetailParams.info.images[0]" />
+      <div class="param-img"  >
+      <!--  <img :src="DetailParams.info.images[0]"/> --> 
       </div>
     </div>
   </div>
@@ -34,6 +34,7 @@ export default {
 <style scoped>
 .param-info {
   width: 100%;
+
   border-bottom: 5px solid #f2f5f8;
   padding: 25px 10px;
 }

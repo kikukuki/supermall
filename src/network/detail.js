@@ -1,4 +1,6 @@
-import { request } from "./request";
+import {
+  request
+} from "./request";
 export function getDetail(iid) {
   return request({
     url: "/detail",
@@ -24,5 +26,6 @@ export class GoodsShop {
     this.columns = columns;
     this.services = services;
     this.highNowPrice = itemInfo.highNowPrice;
+    this.lowPrice = itemInfo.lowPrice;
   }
 }

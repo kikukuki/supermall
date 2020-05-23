@@ -11,16 +11,16 @@
     </div>
     <div class="us-name">
       <div class="shop-title">
-        <img :src="Rates.list[0].user.avatar" />
-        <span>{{Rates.list[0].user.uname}}</span>
+        <img :src="Rates.user.avatar" />
+        <span>{{Rates.user.uname}}</span>
       </div>
       <div class="com-content">
         <div class="com-title">
-          <span>{{Rates.list[0].content}}</span>
+          <span>{{Rates.content}}</span>
         </div>
         <div class="com-created">
-          <span>{{Rates.list[0].created|showDate}}</span>
-          <span>{{Rates.list[0].style}}</span>
+          <span>{{Rates.created|showDate}}</span>
+          <span>{{Rates.style}}</span>
         </div>
       </div>
     </div>

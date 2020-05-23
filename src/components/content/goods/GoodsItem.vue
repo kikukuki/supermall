@@ -1,6 +1,9 @@
 <template>
   <div class="goodsitem" @click="goodsClick">
-    <img :src="getImg" alt @load="imageLoad" />
+	<!-- 第一种普通加载 -->
+    <!-- <img  :src="getImg" alt @load="imageLoad" /> -->
+		<!-- //第二种使用图片懒加载的插件 -->
+		<img v-lazy="getImg" alt @load="imageLoad" />
     <div class="goods-info">
       <p>{{goodslist.title}}</p>
       <span class="price">{{goodslist.price}}</span>
@@ -36,6 +39,9 @@ export default {
       this.$router.push("/detail/" + this.goodslist.iid);
     }
   },
+	created() {
+		// console.log(this.goodslist)
+	},
   mounted() {}
 };
 </script>
